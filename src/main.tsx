@@ -1,25 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, AboutPage, ContactPage } from "./routes";
+import { HomePage, AboutPage, ContactPage, Root } from "./routes";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Root from "./root.tsx";
+import ErrorPage from "./routes/error-page";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "/about",
-        element: <AboutPage />,
-      },
-      {
-        path: "/contact",
-        element: <ContactPage />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+          {
+            path: "/about",
+            element: <AboutPage />,
+          },
+          {
+            path: "/contact",
+            element: <ContactPage />,
+          },
+        ],
       },
     ],
   },
