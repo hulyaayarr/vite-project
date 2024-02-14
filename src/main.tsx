@@ -1,9 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, AboutPage, ContactPage, Root } from "./routes";
+import {
+  HomePage,
+  AboutPage,
+  ContactPage,
+  Root,
+  BlogPage,
+  ErrorPage,
+  BlogPostPage,
+  ArchivedBlogPostsPage,
+} from "./routes";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ErrorPage from "./routes/error-page";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +33,24 @@ const router = createBrowserRouter([
           {
             path: "/contact",
             element: <ContactPage />,
+          },
+          {
+            path: "/blog",
+
+            children: [
+              {
+                index: true,
+                element: <BlogPage />,
+              },
+              {
+                path: "archived",
+                element: <ArchivedBlogPostsPage />,
+              },
+              {
+                path: ":blogId",
+                element: <BlogPostPage />,
+              },
+            ],
           },
         ],
       },

@@ -20,6 +20,9 @@ function Navbar() {
             <Nav.Link as={NavLink} to="/about">
               About
             </Nav.Link>
+            <Nav.Link as={NavLink} to="/blog">
+              Blog
+            </Nav.Link>
             {/* <Link to={`/`}>Home</Link>
             <Link to={`/contact`}>Contact</Link>
             <Link to={`/about`}>about</Link>
