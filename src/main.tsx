@@ -10,6 +10,7 @@ import {
   ErrorPage,
   BlogPostPage,
   ArchivedBlogPostsPage,
+  BlogPostLoader,
 } from "./routes";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -48,6 +49,8 @@ const router = createBrowserRouter([
               },
               {
                 path: ":blogId",
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                loader: BlogPostLoader as any,
                 element: <BlogPostPage />,
               },
             ],

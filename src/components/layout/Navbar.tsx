@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <NavbarBS expand="lg" className="bg-body-tertiary">
+    <NavbarBS expand="lg" className="bg-body-tertiary mb-5">
       <Container>
         <NavbarBS.Brand href="/">React-Bootstrap</NavbarBS.Brand>
         <NavbarBS.Toggle aria-controls="basic-navbar-nav" />
